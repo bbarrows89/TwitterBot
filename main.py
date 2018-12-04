@@ -1,4 +1,4 @@
-import tweepy, requests, config, os, time
+import tweepy, requests, os, time
 
 # Use python time.sleep(sec) to set an interval of a half hour.
 INTERVAL = 60 * 30
