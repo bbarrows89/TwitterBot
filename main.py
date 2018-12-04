@@ -5,11 +5,9 @@ INTERVAL = 60 * 30
 CMC_PRO_API_KEY = config.keys['cmc_api']
 
 # Use Tweepy to submit API keys and interface with Twitter API.
-def setup_tweepy():
-    auth = tweepy.OAuthHandler(config.keys['consumer_key'], config.keys['consumer_secret'])
-    auth.set_access_token(config.keys['access_token'], config.keys['access_secret'])
-    TwitterAPI = tweepy.API(auth)
-    return TwitterAPI
+auth = tweepy.OAuthHandler(config.keys['consumer_key'], config.keys['consumer_secret'])
+auth.set_access_token(config.keys['access_token'], config.keys['access_secret'])
+TwitterAPI = tweepy.API(auth)
 
 def get_bitcoin():
     # define CoinMarketCap API usage
@@ -51,8 +49,6 @@ def get_bitcoin():
 
 def send_tweet(message):
     TwitterAPI.update_status(message)
-
-setup_tweepy()
 
 while True:
     send_tweet(get_bitcoin())
