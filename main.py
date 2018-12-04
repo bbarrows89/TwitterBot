@@ -32,7 +32,7 @@ def get_bitcoin():
     }
 
     duration = ''
-    price = 0.0
+    price = str(round(quote_json['price']), 2)
     message = ''
     
     # create message based upon price movement
@@ -40,15 +40,16 @@ def get_bitcoin():
         if amt >= 10:
             amount = str(round(amt, 2))
             duration = name
-            message = "#BTC has risen by {}% in the last {}.".format(amount, name)
+            message = "#BTC has risen by {}% in the last {}. The price is currently ${}.".format(amount, name, price)
         elif amt <= -10:
             amount = str(round(amt, 2))
             duration = name
-            message = "#BTC has fallen by {}% in the last {}.".format(amount, name)
+            message = "#BTC has fallen by {}% in the last {}. The price is currently ${}.".format(amount, name, price)
         else:
-            message = ("The current price of #BTC is $" + str(round(quote_json['price'], 2)) + " in USD")
+            message = ("The current price of #BTC is $" + price + " in USD")
 
     print(message)
+    
     return message
 
 def send_tweet(message):
