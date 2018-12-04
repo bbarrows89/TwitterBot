@@ -23,7 +23,6 @@ def get_bitcoin():
     # Make GET request and parse the JSON structure to retrieve the quote response.
     r = requests.get(url, headers=headers, params=params).json()
     print(r)
-    '''
     quote_json = r['data']['BTC']['quote']['USD']
    
    # Collect relevant data into dict
@@ -61,6 +60,3 @@ def send_tweet(message):
 while True:
     send_tweet(get_bitcoin())
     time.sleep(INTERVAL) 
-'''
-    print(r)
-get_bitcoin()
