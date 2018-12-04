@@ -49,7 +49,7 @@ def get_bitcoin():
             message = ("The current price of #BTC is $" + price + " in USD")
 
     print(message)
-    
+    print(percent_changes)
     return message
 
 def send_tweet(message):
