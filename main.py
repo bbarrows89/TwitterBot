@@ -1,13 +1,12 @@
 import tweepy, requests, time, os
-from boto.s3.connection import S3Connection
 
 # Use python time.sleep(sec) to set an interval of a half hour.
 INTERVAL = 60 * 30
-CMC_PRO_API_KEY = S3Connection(os.environ['CMC_KEY'])
-CONSUMER_KEY = S3Connection(os.environ['CONSUMER_KEY'])
-CONSUMER_SECRET = S3Connection(os.environ['CONSUMER_SECRET'])
-ACCESS_TOKEN = S3Connection(os.environ['ACCESS_TOKEN'])
-ACCESS_SECRET = S3Connection(os.environ['ACCESS_SECRET'])
+CMC_PRO_API_KEY = os.environ.get('CMC_KEY')
+CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
+CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN')
+ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
 
 # Use Tweepy to submit API keys and interface with Twitter API.
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
