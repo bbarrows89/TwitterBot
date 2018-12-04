@@ -26,9 +26,9 @@ def get_bitcoin():
    
    # Collect relevant data into dict
     percentage_changes = {
-        'one_hour': quote_json['percent_change_1h'],
-        'one_day': quote_json['percent_change_24h'],
-        'one_week': quote_json['percent_change_7d']
+        'hour': quote_json['percent_change_1h'],
+        'day': quote_json['percent_change_24h'],
+        'week': quote_json['percent_change_7d']
     }
 
     duration = ''
