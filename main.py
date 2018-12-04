@@ -39,11 +39,11 @@ def get_bitcoin():
     
     # create message based upon price movement
     for name, amt in percentage_changes.items():
-        if amt >= 10:
+        if amt >= 5:
             amount = str(round(amt, 2))
             duration = name
             message = "#BTC has risen by {}% in the last {}. The price is currently ${}.".format(amount, name, price)
-        elif amt <= -10:
+        elif amt <= -5:
             amount = str(round(amt, 2))
             duration = name
             message = "#BTC has fallen by {}% in the last {}. The price is currently ${}.".format(amount, name, price)
