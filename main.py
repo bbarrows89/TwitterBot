@@ -2,11 +2,15 @@ import tweepy, requests, config, os, time
 
 # Use python time.sleep(sec) to set an interval of a half hour.
 INTERVAL = 60 * 30
-CMC_PRO_API_KEY = config.keys['cmc_api']
+CMC_PRO_API_KEY = environ['CMC_KEY']
+CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_SECRET = environ['CONSUMER_SECRET']
+ACCESS_TOKEN = environ['ACCESS_TOKEN']
+ACCESS_SECRET = environ['ACCESS_SECRET']
 
 # Use Tweepy to submit API keys and interface with Twitter API.
-auth = tweepy.OAuthHandler(config.keys['consumer_key'], config.keys['consumer_secret'])
-auth.set_access_token(config.keys['access_token'], config.keys['access_secret'])
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 TwitterAPI = tweepy.API(auth)
 
 def get_bitcoin():
