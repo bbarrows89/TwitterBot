@@ -40,13 +40,13 @@ def get_bitcoin():
         if amt >= 10:
             amount = str(round(amt, 2))
             duration = name
-            message = "BTC has risen by {}% in the last {}.".format(amount, name)
+            message = "#BTC has risen by {}% in the last {}.".format(round(amount, 2) name)
         elif amt <= -10:
             amount = str(round(amt, 2))
             duration = name
-            message = "BTC has fallen by {}% in the last {}.".format(amount, name)
+            message = "#BTC has fallen by {}% in the last {}.".format(round(amount, 2) name)
         else:
-            message = ("The current price of BTC is $" + str(round(quote_json['price'], 2)) + " in USD")
+            message = ("The current price of #BTC is $" + str(round(quote_json['price'], 2)) + " in USD")
 
     print(message)
     return message
