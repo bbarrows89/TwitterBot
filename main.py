@@ -34,7 +34,7 @@ def get_bitcoin():
 
   
     duration = ''
-    #price = str(round(quote_json['price']), 2)
+    price = str(round(quote_json['price']), 2)
     message = ''
     
     # create message based upon price movement
