@@ -1,6 +1,5 @@
-import tweepy, requests, time
+import tweepy, requests, time, os
 from boto.s3.connection import S3Connection
-from os import environ
 
 # Use python time.sleep(sec) to set an interval of a half hour.
 INTERVAL = 60 * 30
