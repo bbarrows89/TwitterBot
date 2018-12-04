@@ -50,7 +50,7 @@ def get_bitcoin():
     return message
 
 def send_tweet(message):
-    TwitterAPI.status_update(message)
+    TwitterAPI.update_status(message)
 
 setup_tweepy()
 
