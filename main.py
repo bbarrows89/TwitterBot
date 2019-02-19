@@ -1,7 +1,7 @@
 import tweepy, requests, time, os
 
-# Use python time.sleep(sec) to set an interval of a half hour.
-INTERVAL = 60 * 30
+# Use python time.sleep(sec) to set an interval of an hour.
+INTERVAL = 60 * 60
 CMC_PRO_API_KEY = os.environ.get('CMC_KEY')
 CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
 CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
@@ -19,12 +19,12 @@ def get_bitcoin():
     # Feed my API key and use the "symbol" query to only return BTC prices.
     headers = {'X-CMC_PRO_API_KEY': CMC_PRO_API_KEY}
     params = {'symbol' : 'BTC'}
-    
+
     # Make GET request and parse the JSON structure to retrieve the quote response.
     r = requests.get(url, headers=headers, params=params).json()
     # print(r)
     quote_json = r['data']['BTC']['quote']['USD']
-   
+
    # Collect relevant data into dict
     percentage_changes = {
         'hour': quote_json['percent_change_1h'],
@@ -32,11 +32,11 @@ def get_bitcoin():
         'week': quote_json['percent_change_7d']
     }
 
-  
+
     duration = ''
     price = str(round(quote_json['price'], 2))
     message = ''
-    
+
     # create message based upon price movement
     for name, amt in percentage_changes.items():
         if amt >= 5:
@@ -59,4 +59,4 @@ def send_tweet(message):
 
 while True:
     send_tweet(get_bitcoin())
-    time.sleep(INTERVAL) 
+    time.sleep(INTERVAL)
