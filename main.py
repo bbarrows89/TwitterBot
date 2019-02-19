@@ -1,6 +1,6 @@
 import tweepy, requests, time, os
 
-# Use python time.sleep(sec) to set an interval of an hour.
+# Use python time.sleep(sec) to set an interval of an hour (was bumping against heroku limit)
 INTERVAL = 60 * 60
 CMC_PRO_API_KEY = os.environ.get('CMC_KEY')
 CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
